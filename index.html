@@ -28,7 +28,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px; /* Prevents sticky header from covering titles */
+            scroll-padding-top: 80px; 
         }
 
         body {
@@ -190,18 +190,26 @@
             max-width: 600px;
         }
 
-        /* --- Research Section --- */
+        /* --- Horizontal Grid for Research --- */
+        .research-grid {
+            display: flex; 
+            gap: 2rem;     
+            justify-content: center;
+            align-items: flex-start; 
+            flex-wrap: wrap; 
+        }
+
         .research-subsection {
-            max-width: 900px;
-            margin: 0 auto 3rem auto;
+            flex: 1; 
+            min-width: 300px; 
             background: white;
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         .research-subsection h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem; 
             color: #5d5d81;
             margin-bottom: 1.5rem;
             padding-bottom: 5px;
@@ -212,23 +220,26 @@
         .interests-list, .publications-list, .talks-list {
             list-style: none;
             padding-left: 0;
+            font-size: 0.95rem; 
         }
 
         .interests-list li {
             padding: 8px 0;
             border-left: 3px solid var(--primary);
-            padding-left: 15px;
+            padding-left: 10px;
             margin-bottom: 10px;
         }
 
         .publications-list li, .talks-list li {
             margin-bottom: 1.5rem;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         .publication-link a, .talk-location, .talk-date {
-            font-size: 0.9rem;
-            margin-left: 5px;
+            font-size: 0.85rem;
+            margin-left: 0;
+            display: block; 
+            margin-top: 5px;
             font-style: italic;
             color: #888;
         }
@@ -293,12 +304,14 @@
         }
 
         /* --- Mobile Responsive --- */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .nav-links { display: none; }
             .hero h1 { font-size: 2.5rem; }
             .logo { font-size: 1rem; } 
             .hero-img { width: 220px; height: 220px; }
             .outreach-list li { flex-direction: column; text-align: center; gap: 10px;}
+            
+            .research-grid { flex-direction: column; }
         }
     </style>
 </head>
@@ -349,61 +362,49 @@
     <section id="research" style="background-color: #f4f6f9;">
         <h2>Research</h2>
 
-        <div class="research-subsection">
-            <h3>🔭 1. Research Interests</h3>
-            <p>
-                My work is primarily observational, focusing on the physical processes that drive the lifecycle of galaxies. 
-                My main research areas include:
-            </p>
-            <ul class="interests-list">
-                <li>
-                    <strong>Molecular Gas in Galaxies:</strong> Investigating the cold gas content—the fuel for star formation—using tracers like Carbon Monoxide (CO).
-                </li>
-                <li>
-                    <strong>Galaxy Evolution:</strong> Understanding how galaxies grow, form stars, and quench over cosmic time.
-                </li>
-                <li>
-                    <strong>High-Redshift Galaxies:</strong> Utilizing data from major observatories (like ALMA and JWST) to study the early universe.
-                </li>
-                <li>
-                    <strong>Data Science:</strong> Applying modern statistical methods and Python workflows to analyze complex astronomical datasets.
-                </li>
-            </ul>
-        </div>
-
-        <div class="research-subsection">
-            <h3>📰 2. Publications</h3>
-            <p>Peer-reviewed publications and manuscripts.</p>
+        <div class="research-grid">
             
-            <ul class="publications-list">
-                <li>
-                    <strong>[Astronomy & Astrophysics] (2024):</strong> "Molecular gas budget of strongly magnified low-mass star-forming galaxies at cosmic noon."
-                    <br>
-                    <strong>V. Catán</strong>, J. González-López, M. Solimano, et al.
-                    <span class="publication-link">
-                        (<a href="https://www.aanda.org/articles/aa/full_html/2024/12/aa51892-24/aa51892-24.html" target="_blank">Read Paper</a>)
-                    </span>
-                </li>
+            <div class="research-subsection">
+                <h3>🔭 Interests</h3>
+                <p style="font-size:0.9rem; margin-bottom:1rem;">
+                    Focusing on the physical processes that drive the lifecycle of galaxies.
+                </p>
+                <ul class="interests-list">
+                    <li><strong>Molecular Gas:</strong> Investigating cold gas content using CO tracers.</li>
+                    <li><strong>Galaxy Evolution:</strong> How galaxies grow and quench over time.</li>
+                    <li><strong>High-Redshift:</strong> Using ALMA/JWST to study the early universe.</li>
+                    <li><strong>Data Science:</strong> Applying Bayesian inference & Python workflows.</li>
+                </ul>
+            </div>
 
-                <li>
-                    <strong>[In Prep]:</strong> "The Extended Mapping Obscuration to Reionization with ALMA (Ex-MORA) Survey: molecular gas content"
-                    <br>
-                    <strong>V. Catán</strong>, et al.
-                </li>
-            </ul>
-        </div>
+            <div class="research-subsection">
+                <h3>📰 Publications</h3>
+                <ul class="publications-list">
+                    <li>
+                        <strong>[A&A] (2024):</strong> "Molecular gas budget of strongly magnified low-mass star-forming galaxies at cosmic noon."
+                        <span class="publication-link">
+                            <a href="https://www.aanda.org/articles/aa/full_html/2024/12/aa51892-24/aa51892-24.html" target="_blank">Read Paper</a>
+                        </span>
+                    </li>
+                    <li>
+                        <strong>[In Prep]:</strong> "The Extended Mapping Obscuration to Reionization with ALMA (Ex-MORA) Survey."
+                        <span class="publication-link">V. Catán et al.</span>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="research-subsection">
-            <h3>🗣️ 3. Presentations & Talks</h3>
-            <ul class="talks-list">
-                <li>
-                    <strong>Conference Talk:</strong> "Molecular gas budget of strongly magnified low-mass star-forming galaxies at cosmic noon"
-                    <span class="talk-location">| SOCHIAS 2024 Annual Meeting</span>
-                    <span class="talk-date">(Nov. 2024)</span>
-                </li>
-            </ul>
-        </div>
-    </section>
+            <div class="research-subsection">
+                <h3>🗣️ Talks</h3>
+                <ul class="talks-list">
+                    <li>
+                        <strong>Conference Talk:</strong> "Molecular gas budget of strongly magnified galaxies."
+                        <span class="talk-location">SOCHIAS 2024 Annual Meeting</span>
+                        <span class="talk-date">Nov. 2024</span>
+                    </li>
+                </ul>
+            </div>
+            
+        </div> </section>
 
     <section id="outreach">
         <h2>Outreach & Community</h2>
